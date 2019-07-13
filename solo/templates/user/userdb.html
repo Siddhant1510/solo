@@ -1,0 +1,71 @@
+{% extends 'base_user.html' %}
+
+{% block main_body %}
+
+<section id="stats">
+
+        <div class="content-box-md">
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-12 wow slideInLeft">
+                        <div class="vertical-heading">
+                            <h2>We Deliver<br><strong>Excellent</strong> Services</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row fadeInUp">
+
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+
+                        <!-- Stats Item 01 -->
+                        <div class="stats-item text-center">
+                            <i class="fa fa-bar-chart"></i>
+                            <h3 class="counter">{{ total_books }}</h3>
+                            <p>Total Books</p>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+
+                        <!-- Stats Item 02 -->
+                        <div class="stats-item text-center">
+                            <i class="fa fa-codepen"></i>
+                            <h3 class="counter">{{ total_no_of_books }}</h3>
+                            <p>Unique Copies</p>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+
+                        <!-- Stats Item 03 -->
+                        <div class="stats-item text-center">
+                            <i class="fa fa-users"></i>
+                            <h3 class="counter">1150</h3>
+                            <p>Happy Users</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+{% endblock %}
+
+{% block content %}
+
+  <li style="background-color: #f4c613;"><i class="fa fa-list"></i><a href="#">Dashboard</a></li>
+  <li><i class="fa fa-key"></i><a href="../ChangePassword">Change Password</a></li>
+  <li><i class="fa fa-list"></i><a href="../view_issued_books">View Issued Books</a></li>
+  <li><i class="fa fa-list"></i><a href="../view_all_archive_books">View All Archive Books</a></li>
+  <li><i class="fa fa-list"></i><a href="../submit_book_request">Submit Book Request</a></li>
+  <li><i class="fa fa-power-off"></i><a href="{% url 'logout' %}">Sign Out</a></li>
+
+{% endblock %}

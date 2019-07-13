@@ -1,0 +1,29 @@
+{% extends 'base_user.html' %}
+
+{% block main_body %}
+  <table border="1" class="all_books">
+    <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Pages</th>
+    <th>Year of publish</th>
+    <th>No of Copies Available</th></tr>
+    {% for book_info in dataset %}
+    <tr><td>{{book_info.book_id}}</td><td>{{book_info.book_title}}</td><td>{{book_info.book_author}}</td>
+    <td>{{book_info.book_size}}</td><td>{{book_info.book_pub_date}}</td><td>{{book_info.no_of_copies}}</td></tr>
+    {% endfor %}
+  </table>
+
+{% endblock %}
+
+{% block content %}
+
+  <li><i class="fa fa-list"></i><a href="../Dashboard">Dashboard</a></li>
+  <li><i class="fa fa-key"></i><a href="../ChangePassword">Change Password</a></li>
+  <li><i class="fa fa-list"></i><a href="../view_issued_books">View Issued Books</a></li>
+  <li style="background-color: #f4c613;"><i class="fa fa-list"></i><a href="#">View All Archive Books</a></li>
+  <li><i class="fa fa-list"></i><a href="../submit_book_request">Submit Book Request</a></li>
+  <li><i class="fa fa-power-off"></i><a href="{% url 'logout' %}">Sign Out</a></li>
+
+{% endblock %}

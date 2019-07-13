@@ -1,0 +1,22 @@
+{% extends 'base_user.html' %}
+
+{% block main_body %}
+
+<form method="post" class="change-pass">
+  {% csrf_token %}
+  {{ form }}
+  <button type="submit">Save changes</button>
+</form>
+
+{% endblock %}
+
+{% block content %}
+
+  <li><i class="fa fa-list"></i><a href="../Dashboard">Dashboard</a></li>
+  <li style="background-color: #f4c613;"><i class="fa fa-key"></i><a href="#">Change Password</a></li>
+  <li><i class="fa fa-list"></i><a href="../view_issued_books">View Issued Books</a></li>
+  <li><i class="fa fa-list"></i><a href="../view_all_archive_books">View All Archive Books</a></li>
+  <li><i class="fa fa-list"></i><a href="../submit_book_request">Submit Book Request</a></li>
+  <li><i class="fa fa-power-off"></i><a href="{% url 'logout' %}">Sign Out</a></li>
+
+{% endblock %}

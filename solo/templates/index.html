@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+
+    <!--Important meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width , initial-scale=1">
+
+    <!-- Title tag-->
+    <title> Solo - Online Library</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'img/favicon/favicon.ico' %}">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap" rel="stylesheet">
+
+    <!-- Fontawesome-->
+    <link rel="stylesheet" href="{% static 'css/font-awesome/css/font-awesome.min.css' %}">
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.css' %}">
+
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="{% static 'css/owl-carousel/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl-carousel/owl.theme.default.min.css' %}">
+
+    <!-- css file-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="70">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="site-nav-wrapper">
+
+                    <div class="navbar-header">
+
+                        <!-- Logo -->
+                        <a class="navbar-brand smooth-scroll" href="#home">
+                            <img src="{% static 'img/logo/logo.png' %}" alt="logo">
+                        </a>
+                    </div>
+
+                    <!-- Main Menu -->
+                    <div class="container">
+                        <div class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav pull-right">
+                                <li><a class="smooth-scroll" href="#home">Home</a></li>
+                                <li><a class="smooth-scroll" href="#about">About</a></li>
+                                <li><a class="smooth-scroll" href="#team">Team</a></li>
+                                <li><a class="smooth-scroll" href="#contact">Contact</a></li>
+                                {% block content %}
+                                {% if user.is_authenticated %}
+                                <li><span><a href="Dashboard"><h3>Hi {{ user.username }}!</h3></a></span></li>
+                                <li><a href="{% url 'logout' %}">logout</a></li>
+                                {% else %}
+                                <li><a href="{% url 'login' %}">Login</a></li>
+                                <li><a href="{% url 'signup' %}">SignUp</a></li>
+                                {% endif %}
+                                {% endblock %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Header Ends -->
+
+    <!-- Home -->
+    <section id="home">
+
+        <video id="home-bg" poster="{% static 'video/solo.jpg' %}" autoplay loop muted>
+            <source src="{% static 'video/solo.mp4' %}" type="video/mp4">
+            <source src="{% static 'video/solo.ogv' %}" type="video/ogg">
+            <source src="{% static 'video/solo.webm' %}" type="video/webm">
+
+        </video>
+
+        <div id="home-overlay"></div>
+
+        <div id="home-content">
+            <div id="home-content-inner" class="text-center">
+                <div id="home-heading">
+                    <h1 id="home-heading1">Online</h1><br>
+                    <h1 id="home-heading2">Browsable <span>Library</span></h1>
+                </div>
+
+                <div id="home-text">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores excepturi rem reprehenderit ea tempora
+                    </p>
+                </div>
+
+                <div id="home-button">
+                    <a class="btn btn-general btn-home smooth-scroll" href="#about" title="Start Now" role="button">Start Now</a>
+                </div>
+            </div>
+        </div>
+
+        <a href="#about" id="arrow-down" class="smooth-scroll">
+            <i class="fa fa-angle-down"></i>
+        </a>
+
+    </section>
+
+    <!-- About -->
+    <section id="about">
+
+        <div id="about-01">
+
+            <div class="content-box-lg">
+
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+
+                            <div id="about-left">
+
+                                <div class="vertical-heading">
+                                    <h5>Who We Are</h5>
+                                    <h2>A <strong>Story</strong><br>About Us</h2>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div id="about-right">
+
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique itaque quasi totam, ex sequi quaerat nulla officia fugiat nostrum rem maxime culpa aperiam dolor corporis eveniet molestias inventore esse architecto.</p>
+
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius libero voluptas eum quaerat praesentium. Temporibus sit quia expedita adipisci, nulla rem tenetur. Molestias quas pariatur ipsam, porro, nihil unde expedita.</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+
+                            <div id="about-bottom">
+
+                                <img src="{% static 'img/about/about.png' %}" alt="About Us" class="img-responsive">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="about-02">
+
+            <div class="content-box-md">
+
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-md-4 col-sm-4 wow fadeInLeft">
+                            <!-- About item 01 -->
+                            <div class="about-item text-center">
+                                <i class="fa fa-rocket"></i>
+                                <h3>Mission</h3>
+                                <hr>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, eos asperiores nobis molestias nam. Ex quos dicta as.</p>
+                            </div>
+
+                        </div>
+                        <div class="col-md-4 col-sm-4 wow fadeInUp" data-wow-duration="2s">
+                            <!-- About item 02 -->
+                            <div class="about-item text-center">
+                                <i class="fa fa-eye"></i>
+                                <h3>Vision</h3>
+                                <hr>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, eos asperiores nobis molestias nam. Ex quos dicta as.</p>
+                            </div>
+
+                        </div>
+                        <div class="col-md-4 col-sm-4  wow fadeInRight">
+                            <!-- About item 03 -->
+                            <div class="about-item text-center">
+                                <i class="fa fa-pencil"></i>
+                                <h3>Passion</h3>
+                                <hr>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, eos asperiores nobis molestias nam. Ex quos dicta as.</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+    <!-- Team -->
+    <section id="team">
+
+        <div class="content-box-lg">
+
+            <div class="container">
+
+                <!-- Team Members -->
+                <div class="row">
+
+                    <!-- Team Left Side -->
+                    <div class="col-md-6 col-sm-6 wow slideInLeft" data-wow-duration="1s">
+
+                        <div id="team-left">
+
+                            <div class="vertical-heading">
+                                <h5>Who We Are</h5>
+                                <h2>Meet Our<br><strong>Talented</strong> Team</h2>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, repellat, eos! Dignissimos expedita totam cum quidem autem alias dolorum error a quia optio eligendi, amet animi reprehenderit, quaerat.</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Team Right Side -->
+                    <div class="col-md-6 col-sm-6 wow slideInRight" data-wow-duration="1s">
+
+                        <div id="team-members" class="owl-carousel owl-theme">
+
+                            <!-- Member 01 -->
+                            <div class="team-member">
+                                <img src="{% static 'img/team/team-1.jpg' %}" alt="team member" class="img-responsive">
+                                <div class="team-member-overlay">
+                                    <div class="team-member-info text-center">
+                                        <h6>Kevin Greer</h6>
+                                        <p>Head Librarian</p>
+                                        <ul class="social-list">
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- Member 02 -->
+                            <div class="team-member">
+                                <img src="{% static 'img/team/team-2.jpg' %}" alt="team member" class="img-responsive">
+                                <div class="team-member-overlay">
+                                    <div class="team-member-info text-center">
+                                        <h6>Christian Cilinis</h6>
+                                        <p>IT Support Head</p>
+                                        <ul class="social-list">
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- Member 03 -->
+                            <div class="team-member">
+                                <img src="{% static 'img/team/team-3.jpg' %}" alt="team member" class="img-responsive">
+                                <div class="team-member-overlay">
+                                    <div class="team-member-info text-center">
+                                        <h6>Andrea Arkov</h6>
+                                        <p>Librarian</p>
+                                        <ul class="social-list">
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- Member 04 -->
+                            <div class="team-member">
+                                <img src="{% static 'img/team/team-4.jpg' %}" alt="team member" class="img-responsive">
+                                <div class="team-member-overlay">
+                                    <div class="team-member-info text-center">
+                                        <h6>Harold Houdini</h6>
+                                        <p>Librarian</p>
+                                        <ul class="social-list">
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- Member 05 -->
+                            <div class="team-member">
+                                <img src="{% static 'img/team/team-5.jpg' %}" alt="team member" class="img-responsive">
+                                <div class="team-member-overlay">
+                                    <div class="team-member-info text-center">
+                                        <h6>Angela Perry</h6>
+                                        <p>Manager</p>
+                                        <ul class="social-list">
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Member 06 -->
+                            <div class="team-member">
+                                <img src="{% static 'img/team/team-6.jpg' %}" alt="team member" class="img-responsive">
+                                <div class="team-member-overlay">
+                                    <div class="team-member-info text-center">
+                                        <h6>Kara Kulis</h6>
+                                        <p>Librarian</p>
+                                        <ul class="social-list">
+                                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+     <!-- Contact -->
+    <section id="contact">
+
+        <div class="content-box-md-contact">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <!-- Contact Left -->
+                        <div id="contact-left">
+
+                            <div class="vertical-heading">
+                                <h5>Who We Are</h5>
+                                <h2>Get<br>In <strong>Touch</strong></h2>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias modi est itaque aliquam sit, minima esse nihil mollitia no.</p>
+
+                            <div id="offices">
+
+                                <div class="row">
+
+                                    <div class="col-md-6">
+
+                                        <div class="office">
+                                            <h4>United States</h4>
+                                            <ul class="office-details">
+                                                <li><i class="fa fa-mobile"></i><span>+(55) 879 58 87 46</span></li>
+                                                <li><i class="fa fa-envelope"></i><span>support@solo.com</span></li>
+                                                <li><i class="fa fa-map-marker"></i><span>524 Mina Street Building 05<br>Newyork, USA.</span></li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+
+                                        <div class="office">
+                                            <h4>Australia</h4>
+                                            <ul class="office-details">
+                                                <li><i class="fa fa-mobile"></i><span>+(88) 457 87 74 87</span></li>
+                                                <li><i class="fa fa-envelope"></i><span>support@solo.com</span></li>
+                                                <li><i class="fa fa-map-marker"></i><span>507 Din Street Building 55 <br>Sydney, Australia.</span></li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <ul class="social-list">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+
+                        <!-- Contact Right -->
+                        <div id="contact-right">
+
+                            <form>
+                                <h4>Send Message</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa repell.</p>
+
+                                <div class="row">
+
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" id="email" placeholder="Email Address">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="phone" placeholder="Phone No.">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" id="message" placeholder="Message"></textarea>
+                                </div>
+
+                                <div id="submit-btn">
+                                    <a class="btn btn-general btn-yellow" href="#" title="Submit" role="button">Submit</a>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer  -->
+    <footer class="text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        Copyright &copy; 2019 All Rights Reserved By <span>SOLO.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back To Top -->
+        <a href="#home" id="back-to-top" class="btn btn-sm btn-yellow btn-back-to-top smooth-scroll hidden-sm hidden-xs" title="home" role="button">
+            <i class="fa fa-angle-up"></i>
+        </a>
+
+    </footer>
+
+    <!--JQuery-->
+    <script src="{% static 'js/jquery.js' %}"></script>
+
+    <!-- Bootstrap JS-->
+    <script src="{% static 'js/bootstrap/bootstrap.js' %}"></script>
+
+    <!-- Owl Carousel JS -->
+    <script src="{% static 'js/owl-carousel/owl.carousel.min.js' %}"></script>
+
+    <!-- Easing -->
+    <script src="{% static 'js/easing/130%20jquery.easing.1.3.js' %}"></script>
+
+    <!-- Custom JS-->
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>
